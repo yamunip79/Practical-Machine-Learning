@@ -36,9 +36,9 @@ library(e1071)
 train <- read.csv("training.csv", na.strings=c("NA","#DIV/0!",""))
 test <- read.csv("testing.csv", na.strings=c("NA","#DIV/0!",""))
 
-#names(train)
-#str(train)
-#summary(train)
+names(train)
+str(train)
+summary(train)
 summary(train$classe)#this is the outcome we want to predict
 
 ```
@@ -109,7 +109,7 @@ print(modFit)
 #out of sample error
 predict1 <- predict(modFit, myTest, type = "class")
 confusionMatrix(myTest$classe, predict1)
-#modFit <- train(classe ~., method = "rf", trControl=trainControl(method = "cv", number = 4), data = mytrain_SUB)
+modFit <- train(classe ~., method = "rf", trControl=trainControl(method = "cv", number = 4), data = mytrain_SUB)
 ```
 
 
